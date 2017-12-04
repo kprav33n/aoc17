@@ -1,0 +1,12 @@
+[package]
+name = "aoc17"
+version = "0.1.0"
+authors = ["Praveen Kumar <praveen+git@kumar.in>"]
+
+[lib]
+name = "aoc17"
+path = "src/lib.rs"
+
+[[bin]]
+name = "aoc17"
+path = "src/main.rs"
