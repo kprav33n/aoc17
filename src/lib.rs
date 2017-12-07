@@ -24,3 +24,15 @@ pub fn solve_captcha(input: &str) -> u64 {
         sum
     }
 }
+
+pub fn solve_captcha2(input: &str) -> u64 {
+    let bytes = input.as_bytes();
+    let len = bytes.len();
+    let mut sum = 0;
+    for i in 0..len/2 {
+        if bytes[i] == bytes[i + len/2] {
+            sum += (as_digit(bytes[i]) * 2) as u64
+        }
+    }
+    sum
+}
