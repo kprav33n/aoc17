@@ -36,3 +36,21 @@ pub fn solve_captcha2(input: &str) -> u64 {
     }
     sum
 }
+
+pub fn compute_checksum(input: &str) -> u64 {
+    let mut sum = 0;
+    for l in input.lines() {
+        let mut max = std::u64::MIN;
+        let mut min = std::u64::MAX;
+        for v in l.split_whitespace().map(|x| { x.parse::<u64>().unwrap() }) {
+            if min > v {
+                min = v;
+            }
+            if max < v {
+                max = v;
+            }
+        }
+        sum += max - min;
+    }
+    sum
+}
