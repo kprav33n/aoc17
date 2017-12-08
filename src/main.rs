@@ -14,6 +14,13 @@ fn main() {
                 Err(e) => println!("Failed to read from STDIN: {}", e),
             }
         }
+        "compute-checksum2" => {
+            let mut buffer = String::new();
+            match io::stdin().read_to_string(&mut buffer) {
+                Ok(_) => println!("{}", aoc17::compute_checksum2(&buffer)),
+                Err(e) => println!("Failed to read from STDIN: {}", e),
+            }
+        }
         _ => println!("Unknown command"),
     }
 }
