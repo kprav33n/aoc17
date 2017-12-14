@@ -27,6 +27,13 @@ fn main() {
         "next-in-sum-spiral" => println!("{}", aoc17::next_in_sum_spiral(
             env::args().nth(2).unwrap().parse::<i64>().unwrap()
         )),
+        "count-valid-passphrases" => {
+            let mut buffer = String::new();
+            match io::stdin().read_to_string(&mut buffer) {
+                Ok(_) => println!("{}", aoc17::day4::count_valid_passphrases(&buffer)),
+                Err(e) => println!("Failed to read from STDIN: {}", e),
+            }
+        },
         _ => println!("Unknown command"),
     }
 }
