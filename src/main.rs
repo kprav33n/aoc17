@@ -21,6 +21,9 @@ fn main() {
                 Err(e) => println!("Failed to read from STDIN: {}", e),
             }
         }
+        "manhattan-distance" => println!("{}", aoc17::manhattan_distance(
+            env::args().nth(2).unwrap().parse::<u64>().unwrap()
+        )),
         _ => println!("Unknown command"),
     }
 }
