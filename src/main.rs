@@ -24,6 +24,9 @@ fn main() {
         "manhattan-distance" => println!("{}", aoc17::manhattan_distance(
             env::args().nth(2).unwrap().parse::<u64>().unwrap()
         )),
+        "next-in-sum-spiral" => println!("{}", aoc17::next_in_sum_spiral(
+            env::args().nth(2).unwrap().parse::<i64>().unwrap()
+        )),
         _ => println!("Unknown command"),
     }
 }
