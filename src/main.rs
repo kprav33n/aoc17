@@ -34,6 +34,13 @@ fn main() {
                 Err(e) => println!("Failed to read from STDIN: {}", e),
             }
         },
-        _ => println!("Unknown command"),
+        "count-valid-passphrases-secure" => {
+            let mut buffer = String::new();
+            match io::stdin().read_to_string(&mut buffer) {
+                Ok(_) => println!("{}", aoc17::day4::count_valid_passphrases_secure(&buffer)),
+                Err(e) => println!("Failed to read from STDIN: {}", e),
+            }
+        },
+        _ => println!("Unknown command: {}", command),
     }
 }
