@@ -44,7 +44,14 @@ fn main() {
         "steps-until-exit" => {
             let mut buffer = String::new();
             match io::stdin().read_to_string(&mut buffer) {
-                Ok(_) => println!("{}", aoc17::day5::steps_until_exit(&buffer)),
+                Ok(_) => println!("{}", aoc17::day5::steps_until_exit(&buffer, false)),
+                Err(e) => println!("Failed to read from STDIN: {}", e),
+            }
+        }
+        "steps-until-exit-strange" => {
+            let mut buffer = String::new();
+            match io::stdin().read_to_string(&mut buffer) {
+                Ok(_) => println!("{}", aoc17::day5::steps_until_exit(&buffer, true)),
                 Err(e) => println!("Failed to read from STDIN: {}", e),
             }
         }
