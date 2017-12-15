@@ -1,6 +1,6 @@
 extern crate aoc17;
 
-use aoc17::day5::*;
+use aoc17::day05::*;
 
 #[test]
 fn test_steps_until_exit() {

@@ -1,6 +1,6 @@
 extern crate aoc17;
 
-use aoc17::day4::*;
+use aoc17::day04::*;
 
 #[test]
 fn test_is_valid_passphrase() {

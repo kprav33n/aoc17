@@ -1,6 +1,6 @@
 extern crate aoc17;
 
-use aoc17::day3::*;
+use aoc17::day03::*;
 
 #[test]
 fn test_manhattan_distance() {

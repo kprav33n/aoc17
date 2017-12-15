@@ -30,40 +30,40 @@ fn main() {
     let command = &env::args().nth(1).unwrap() as &str;
     match command {
         "solve-captcha" => report_result_using_second_arg_str(
-            aoc17::day1::solve_captcha
+            aoc17::day01::solve_captcha
         ),
         "solve-captcha2" => report_result_using_second_arg_str(
-            aoc17::day1::solve_captcha2
+            aoc17::day01::solve_captcha2
         ),
         "compute-checksum" => read_stdin_and_report_result(
-            aoc17::day2::compute_checksum
+            aoc17::day02::compute_checksum
         ),
         "compute-checksum2" => read_stdin_and_report_result(
-            aoc17::day2::compute_checksum2
+            aoc17::day02::compute_checksum2
         ),
         "manhattan-distance" => report_result_using_second_arg(
-            aoc17::day3::manhattan_distance
+            aoc17::day03::manhattan_distance
         ),
         "next-in-sum-spiral" => report_result_using_second_arg(
-            aoc17::day3::next_in_sum_spiral
+            aoc17::day03::next_in_sum_spiral
         ),
         "count-valid-passphrases" => read_stdin_and_report_result(
-            aoc17::day4::count_valid_passphrases
+            aoc17::day04::count_valid_passphrases
         ),
         "count-valid-passphrases-secure" => read_stdin_and_report_result(
-            aoc17::day4::count_valid_passphrases_secure
+            aoc17::day04::count_valid_passphrases_secure
         ),
         "steps-until-exit" => read_stdin_and_report_result(
-            |x| aoc17::day5::steps_until_exit(x, false)
+            |x| aoc17::day05::steps_until_exit(x, false)
         ),
         "steps-until-exit-strange" => read_stdin_and_report_result(
-            |x| aoc17::day5::steps_until_exit(x, true)
+            |x| aoc17::day05::steps_until_exit(x, true)
         ),
         "num-redist" => read_stdin_and_report_result(
-            |x| aoc17::day6::num_redist(x).0
+            |x| aoc17::day06::num_redist(x).0
         ),
         "num-redist2" => read_stdin_and_report_result(
-            |x| aoc17::day6::num_redist(x).1
+            |x| aoc17::day06::num_redist(x).1
         ),
         "num_match_duel" => read_stdin_and_report_result(
             |x| {

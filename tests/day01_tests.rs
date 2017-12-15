@@ -1,6 +1,6 @@
 extern crate aoc17;
 
-use aoc17::day1::*;
+use aoc17::day01::*;
 
 #[test]
 fn test_solve_captch() {

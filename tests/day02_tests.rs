@@ -1,6 +1,6 @@
 extern crate aoc17;
 
-use aoc17::day2::*;
+use aoc17::day02::*;
 
 #[test]
 fn test_compute_checksum() {
