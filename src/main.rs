@@ -65,6 +65,12 @@ fn main() {
         "num-redist2" => read_stdin_and_report_result(
             |x| aoc17::day6::num_redist(x).1
         ),
+        "num_match_duel" => read_stdin_and_report_result(
+            |x| {
+                let v: Vec<u32> = x.split_whitespace().map(|i| i.parse::<u32>().unwrap()).collect();
+                aoc17::day15::num_match_duel(v[0], v[1], 40000000)
+            }
+        ),
         _ => println!("Unknown command: {}", command),
     }
 }
