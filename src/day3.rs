@@ -44,7 +44,7 @@ pub fn manhattan_distance(port: u64) -> u64 {
     let mut steps = 0;
     while current != 1 {
         steps += 1;
-        current = std::cmp::min(current - 1, adj_port(current));
+        current = adj_port(current);
     }
     return steps;
 }
