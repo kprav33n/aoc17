@@ -1,11 +1,19 @@
-fn gen(factor: u32) -> Box<Fn(u32) -> u32> {
+fn gen(factor: u32, cdivisor: u32) -> Box<Fn(u32) -> u32> {
     let divisor = 2147483647;
-    Box::new(move |start| ((start as u64 * factor as u64) % divisor) as u32)
+    Box::new(move |start| {
+        let mut x = start;
+        loop {
+            x = ((x as u64 * factor as u64) % divisor) as u32;
+            if x % cdivisor == 0 {
+                return x;
+            }
+        }
+    })
 }
 
-pub fn num_match_duel(start_a: u32, start_b: u32, iterations: usize) -> usize {
-    let gen_a = gen(16807);
-    let gen_b = gen(48271);
+pub fn num_match_duel(start_a: u32, start_b: u32, iterations: usize, slow: bool) -> usize {
+    let gen_a = gen(16807, if slow {4} else {1});
+    let gen_b = gen(48271, if slow {8} else {1});
     let mut last_a = start_a;
     let mut last_b = start_b;
     let mut matches = 0;
