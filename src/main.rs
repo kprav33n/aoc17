@@ -60,7 +60,10 @@ fn main() {
             |x| aoc17::day5::steps_until_exit(x, true)
         ),
         "num-redist" => read_stdin_and_report_result(
-            aoc17::day6::num_redist
+            |x| aoc17::day6::num_redist(x).0
+        ),
+        "num-redist2" => read_stdin_and_report_result(
+            |x| aoc17::day6::num_redist(x).1
         ),
         _ => println!("Unknown command: {}", command),
     }
