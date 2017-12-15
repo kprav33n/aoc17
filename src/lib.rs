@@ -1,4 +1,5 @@
 pub mod day4;
+pub mod day5;
 
 fn as_digit(x: u8) -> u8 {
     return x - '0' as u8;
