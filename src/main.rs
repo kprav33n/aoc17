@@ -2,59 +2,43 @@ extern crate aoc17;
 use std::env;
 use std::io::{self, Read};
 
+fn second_argument() -> String {
+    env::args().nth(2).unwrap()
+}
+
+fn report_result_using_second_arg_str<T: std::fmt::Display>(f: fn(&str) -> T) {
+    println!("{}", f(&second_argument() as &str));
+}
+
+fn read_stdin_and_report_result<T: std::fmt::Display>(f: fn(&str) -> T) {
+    let mut buffer = String::new();
+    match io::stdin().read_to_string(&mut buffer) {
+        Ok(_) => println!("{}", f(&buffer)),
+        Err(e) => println!("Failed to read from STDIN: {}", e),
+    }
+}
+
+fn report_result_using_second_arg<T: std::str::FromStr + std::fmt::Display>(f: fn(T) -> T) {
+    let arg = second_argument();
+    match arg.parse::<T>() {
+        Ok(v) => println!("{}", f(v)),
+        Err(_) => println!("Failed to parse argument {}", arg),
+    }
+}
+
 fn main() {
     let command = &env::args().nth(1).unwrap() as &str;
     match command {
-        "solve-captcha" => println!("{}", aoc17::solve_captcha(&env::args().nth(2).unwrap() as &str)),
-        "solve-captcha2" => println!("{}", aoc17::solve_captcha2(&env::args().nth(2).unwrap() as &str)),
-        "compute-checksum" => {
-            let mut buffer = String::new();
-            match io::stdin().read_to_string(&mut buffer) {
-                Ok(_) => println!("{}", aoc17::compute_checksum(&buffer)),
-                Err(e) => println!("Failed to read from STDIN: {}", e),
-            }
-        }
-        "compute-checksum2" => {
-            let mut buffer = String::new();
-            match io::stdin().read_to_string(&mut buffer) {
-                Ok(_) => println!("{}", aoc17::compute_checksum2(&buffer)),
-                Err(e) => println!("Failed to read from STDIN: {}", e),
-            }
-        }
-        "manhattan-distance" => println!("{}", aoc17::manhattan_distance(
-            env::args().nth(2).unwrap().parse::<u64>().unwrap()
-        )),
-        "next-in-sum-spiral" => println!("{}", aoc17::next_in_sum_spiral(
-            env::args().nth(2).unwrap().parse::<i64>().unwrap()
-        )),
-        "count-valid-passphrases" => {
-            let mut buffer = String::new();
-            match io::stdin().read_to_string(&mut buffer) {
-                Ok(_) => println!("{}", aoc17::day4::count_valid_passphrases(&buffer)),
-                Err(e) => println!("Failed to read from STDIN: {}", e),
-            }
-        }
-        "count-valid-passphrases-secure" => {
-            let mut buffer = String::new();
-            match io::stdin().read_to_string(&mut buffer) {
-                Ok(_) => println!("{}", aoc17::day4::count_valid_passphrases_secure(&buffer)),
-                Err(e) => println!("Failed to read from STDIN: {}", e),
-            }
-        }
-        "steps-until-exit" => {
-            let mut buffer = String::new();
-            match io::stdin().read_to_string(&mut buffer) {
-                Ok(_) => println!("{}", aoc17::day5::steps_until_exit(&buffer, false)),
-                Err(e) => println!("Failed to read from STDIN: {}", e),
-            }
-        }
-        "steps-until-exit-strange" => {
-            let mut buffer = String::new();
-            match io::stdin().read_to_string(&mut buffer) {
-                Ok(_) => println!("{}", aoc17::day5::steps_until_exit(&buffer, true)),
-                Err(e) => println!("Failed to read from STDIN: {}", e),
-            }
-        }
+        "solve-captcha" => report_result_using_second_arg_str(aoc17::solve_captcha),
+        "solve-captcha2" => report_result_using_second_arg_str(aoc17::solve_captcha2),
+        "compute-checksum" => read_stdin_and_report_result(aoc17::compute_checksum),
+        "compute-checksum2" => read_stdin_and_report_result(aoc17::compute_checksum2),
+        "manhattan-distance" => report_result_using_second_arg(aoc17::manhattan_distance),
+        "next-in-sum-spiral" => report_result_using_second_arg(aoc17::next_in_sum_spiral),
+        "count-valid-passphrases" => read_stdin_and_report_result(aoc17::day4::count_valid_passphrases),
+        "count-valid-passphrases-secure" => read_stdin_and_report_result(aoc17::day4::count_valid_passphrases_secure),
+        "steps-until-exit" => read_stdin_and_report_result(|x| aoc17::day5::steps_until_exit(x, false)),
+        "steps-until-exit-strange" => read_stdin_and_report_result(|x| aoc17::day5::steps_until_exit(x, true)),
         _ => println!("Unknown command: {}", command),
     }
 }
