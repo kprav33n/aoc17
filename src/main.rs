@@ -83,6 +83,11 @@ fn main() {
                 aoc17::day10::knot_product(256, v)
             }
         ),
+        "knot-hash" => read_stdin_and_report_result(
+            |x| {
+                aoc17::day10::knot_hash(x.trim())
+            }
+        ),
         _ => println!("Unknown command: {}", command),
     }
 }
