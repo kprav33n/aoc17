@@ -65,16 +65,22 @@ fn main() {
         "num-redist2" => read_stdin_and_report_result(
             |x| aoc17::day06::num_redist(x).1
         ),
-        "num_match_duel" => read_stdin_and_report_result(
+        "num-match-duel" => read_stdin_and_report_result(
             |x| {
                 let v: Vec<u32> = x.split_whitespace().map(|i| i.parse::<u32>().unwrap()).collect();
                 aoc17::day15::num_match_duel(v[0], v[1], 40000000, false)
             }
         ),
-        "num_match_duel2" => read_stdin_and_report_result(
+        "num-match-duel2" => read_stdin_and_report_result(
             |x| {
                 let v: Vec<u32> = x.split_whitespace().map(|i| i.parse::<u32>().unwrap()).collect();
                 aoc17::day15::num_match_duel(v[0], v[1], 5000000, true)
+            }
+        ),
+        "knot-product" => read_stdin_and_report_result(
+            |x| {
+                let v = x.trim().split(",").map(|x| x.parse::<usize>().unwrap()).collect();
+                aoc17::day10::knot_product(256, v)
             }
         ),
         _ => println!("Unknown command: {}", command),
