@@ -88,6 +88,11 @@ fn main() {
                 aoc17::day10::knot_hash(x.trim())
             }
         ),
+        "perm-promenade" => read_stdin_and_report_result(
+            |x| {
+                aoc17::day16::perm_promenade("abcdefghijklmnop", x.trim())
+            }
+        ),
         _ => println!("Unknown command: {}", command),
     }
 }
