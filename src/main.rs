@@ -90,7 +90,12 @@ fn main() {
         ),
         "perm-promenade" => read_stdin_and_report_result(
             |x| {
-                aoc17::day16::perm_promenade("abcdefghijklmnop", x.trim())
+                aoc17::day16::perm_promenade("abcdefghijklmnop", x.trim(), 1)
+            }
+        ),
+        "perm-promenade-whole" => read_stdin_and_report_result(
+            |x| {
+                aoc17::day16::perm_promenade("abcdefghijklmnop", x.trim(), 100)
             }
         ),
         _ => println!("Unknown command: {}", command),
