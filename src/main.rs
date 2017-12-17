@@ -104,6 +104,11 @@ fn main() {
         "num-used-regions" => read_stdin_and_report_result(
             aoc17::day14::num_used_regions
         ),
+        "spinlock-end-val" => read_stdin_and_report_result(
+            |x| {
+                aoc17::day17::spinlock_end_val(x.parse().unwrap(), 2017)
+            }
+        ),
         _ => println!("Unknown command: {}", command),
     }
 }
