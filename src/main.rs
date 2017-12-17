@@ -109,6 +109,11 @@ fn main() {
                 aoc17::day17::spinlock_end_val(x.parse().unwrap(), 2017)
             }
         ),
+        "spinlock-end-val-short" => read_stdin_and_report_result(
+            |x| {
+                aoc17::day17::spinlock_end_val_short(x.parse().unwrap(), 50000000)
+            }
+        ),
         _ => println!("Unknown command: {}", command),
     }
 }

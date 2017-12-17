@@ -8,5 +8,10 @@ fn test_spinlock_end_val() {
     assert_eq!(spinlock_end_val(3, 2), 1);
     assert_eq!(spinlock_end_val(3, 3), 1);
     assert_eq!(spinlock_end_val(3, 4), 3);
-    assert_eq!(spinlock_end_val(3, 2017), 638)
+    assert_eq!(spinlock_end_val(3, 2017), 638);
+}
+
+#[test]
+fn test_spinlock_end_val_short() {
+    assert_eq!(spinlock_end_val_short(3, 9), 9);
 }
