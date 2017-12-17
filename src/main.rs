@@ -13,7 +13,7 @@ fn report_result_using_second_arg_str<T: std::fmt::Display>(f: fn(&str) -> T) {
 fn read_stdin_and_report_result<T: std::fmt::Display>(f: fn(&str) -> T) {
     let mut buffer = String::new();
     match io::stdin().read_to_string(&mut buffer) {
-        Ok(_) => println!("{}", f(&buffer)),
+        Ok(_) => println!("{}", f(&buffer.trim())),
         Err(e) => println!("Failed to read from STDIN: {}", e),
     }
 }
@@ -97,6 +97,9 @@ fn main() {
             |x| {
                 aoc17::day16::perm_promenade("abcdefghijklmnop", x.trim(), 100)
             }
+        ),
+        "num-used-grids" => read_stdin_and_report_result(
+            aoc17::day14::num_used_grids
         ),
         _ => println!("Unknown command: {}", command),
     }
