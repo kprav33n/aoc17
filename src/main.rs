@@ -101,6 +101,9 @@ fn main() {
         "num-used-grids" => read_stdin_and_report_result(
             aoc17::day14::num_used_grids
         ),
+        "num-used-regions" => read_stdin_and_report_result(
+            aoc17::day14::num_used_regions
+        ),
         _ => println!("Unknown command: {}", command),
     }
 }
