@@ -120,6 +120,9 @@ fn main() {
                 aoc17::day17::spinlock_end_val_short(x.parse().unwrap(), 50000000)
             }
         ),
+        "last-recovered-freq"  => read_stdin_and_report_result(
+            aoc17::day18::last_recovered_freq
+        ),
         _ => println!("Unknown command: {}", command),
     }
 }
