@@ -68,6 +68,9 @@ fn main() {
         "find-bottom-program" => read_stdin_and_report_result(
             aoc17::day07::find_bottom_program
         ),
+        "adjusted-weight" => read_stdin_and_report_result(
+            |x| aoc17::day07::adjusted_weight(x).2
+        ),
         "knot-product" => read_stdin_and_report_result(
             |x| {
                 let v = x.trim().split(",").map(|x| x.parse::<usize>().unwrap()).collect();
