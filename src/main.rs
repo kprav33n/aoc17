@@ -123,6 +123,11 @@ fn main() {
         "last-recovered-freq"  => read_stdin_and_report_result(
             aoc17::day18::last_recovered_freq
         ),
+        "num-sends" => read_stdin_and_report_result(
+            |x| {
+                aoc17::day18::num_sends(x).1
+            }
+        ),
         _ => println!("Unknown command: {}", command),
     }
 }
