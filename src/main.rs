@@ -129,7 +129,14 @@ fn main() {
             }
         ),
         "trace-path" => read_stdin_and_report_result(
-            aoc17::day19::trace_path
+            |x| {
+                aoc17::day19::trace_path(x).1
+            }
+        ),
+        "trace-path-steps" => read_stdin_and_report_result(
+            |x| {
+                aoc17::day19::trace_path(x).0
+            }
         ),
         _ => println!("Unknown command: {}", command),
     }

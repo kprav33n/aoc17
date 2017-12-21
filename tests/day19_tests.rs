@@ -9,5 +9,5 @@ fn test_trace_path() {
      A  |  C    
  F---|----E|--+ 
      |  |  |  D 
-     +B-+  +--+ "), "ABCDEF");
+     +B-+  +--+ "), (38, String::from("ABCDEF")));
 }

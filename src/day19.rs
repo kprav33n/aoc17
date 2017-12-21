@@ -1,11 +1,13 @@
-pub fn trace_path(input: &str) -> String {
+pub fn trace_path(input: &str) -> (usize, String) {
     let chars: Vec<Vec<char>> = input.lines().map(|x| x.chars().collect()).collect();
     let mut x = 0;
     let (mut y, _) = chars[x].iter().enumerate().find(|&t| *t.1 == '|').unwrap();
     let mut direction = Direction::Down;
     let mut path: Vec<char> = vec![];
+    let mut count = 0;
 
     loop {
+        count += 1;
         match &direction {
             &Direction::Down => {
                 match chars[x][y] {
@@ -93,7 +95,7 @@ pub fn trace_path(input: &str) -> String {
             }
         }
     }
-    path.iter().collect()
+    (count - 1, path.iter().collect())
 }
 
 #[derive(Debug)]
