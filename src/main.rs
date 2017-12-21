@@ -13,7 +13,7 @@ fn report_result_using_second_arg_str<T: std::fmt::Display>(f: fn(&str) -> T) {
 fn read_stdin_and_report_result<T: std::fmt::Display>(f: fn(&str) -> T) {
     let mut buffer = String::new();
     match io::stdin().read_to_string(&mut buffer) {
-        Ok(_) => println!("{}", f(&buffer.trim())),
+        Ok(_) => println!("{}", f(&buffer)),
         Err(e) => println!("Failed to read from STDIN: {}", e),
     }
 }
@@ -127,6 +127,9 @@ fn main() {
             |x| {
                 aoc17::day18::num_sends(x).1
             }
+        ),
+        "trace-path" => read_stdin_and_report_result(
+            aoc17::day19::trace_path
         ),
         _ => println!("Unknown command: {}", command),
     }
